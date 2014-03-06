@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+#the goal is to count words
+
  
 #Splits by word, although it is just splitting by space.  So if there is a
 #symbol it is included in the "word".  I think I am going to have to be more explicit.
@@ -13,10 +15,6 @@ wordSplit = sampleRead.split()
 
 
 print wordSplit.count('the') #this counts the number of occurances of the word "the"
-
-#This prints everything in the list on a new line
-# for item in wordSplit:
-#      print item
 
 sampleText.close()
 
