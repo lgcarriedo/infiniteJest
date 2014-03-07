@@ -7,6 +7,9 @@
 3. chapters
 4. Paragraphs
 
+##1. wordParser.py
+
+There are so 
 ##4. Paragraphs
 
     toes = '''went to the market
@@ -78,4 +81,9 @@ Many times it happens that we want to add more data to a value in a dictionary a
     {'names': ['Ruby', 'Python', 'C']}
         'American lunar Y.D.A.U. The legation fin'
 
+You can lists within lists. via [pymbook.readthedocs.org](http://pymbook.readthedocs.org/en/latest/datastructure.html#dictionaries)
 
+    />>> a
+    [45, 43624356, -3434, 1, 45, 23, 1, 111, [45, 56, 90]]
+    />>> a[-1]
+    [45, 56, 90]

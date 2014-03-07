@@ -9,12 +9,13 @@ sampleText = open('sample.txt')
 
 sampleRead = sampleText.read()
 
+
+
 wordSplit = sampleRead.split()
 
 #print  wordSplit #prints the string
 
-
-print wordSplit.count('the') #this counts the number of occurances of the word "the"
+print wordSplit.count('Bruce') #this counts the number of occurances of the word in ' '
 
 sampleText.close()
 
