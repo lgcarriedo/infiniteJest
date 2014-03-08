@@ -32,6 +32,29 @@ I am going to need to make a hiearchy dictionary.  With Chapter, paragraph, sent
 Can I write in the text file and make it a variable right away?  
 
 
+#Order on how created the project
+
+1.  I first started messing with a small sample file, that I could manage a bit easier. 
+2.  I then started looking into how to do simple tasks like splitting into more digestible sections using the split() method.
+3.  In order to understand the output of the splitting I was doing I brushed up on understanding Python data stuctures, using the [best written guide to any programing I had ever seen](http://pymbook.readthedocs.org/en/latest/datastructure.html#matrixmul-py).  
+4. I wanted to count something super simple, like words, so I wrote a little program that asks for the word, then prints the number of occurances of that word. This also goes along with one of my long term goals of being able to count all the character/terms and there location relative to book. 
+
+There are several reasons why splitting using ```wordSplit = sampleRead.split()``` doesn't work. Since it is cutting on the space all the symbols are present. 
+
+5.  Do I even need to split into list to get occurances? It might be easier to leave as string, remove symbols, and use the find feature. 
+
+###TODOD NEXT
+
+- **Remove Symbols**I have to really explore how the count() method works.  Also explore find().  Maybe use the regex to find everything but symbols 
+
+    [^A-Za-z0-9]+
+
+and remove
+
+    re.sub('[^A-Za-z0-9]+', '', mystring)
+
+**Get list of Characters**
+
 ##Programing concepts
 
 Here you are reading one line at a time. Could come in handy if you specify when to stop.  
@@ -81,9 +104,37 @@ Many times it happens that we want to add more data to a value in a dictionary a
     {'names': ['Ruby', 'Python', 'C']}
         'American lunar Y.D.A.U. The legation fin'
 
-You can lists within lists. via [pymbook.readthedocs.org](http://pymbook.readthedocs.org/en/latest/datastructure.html#dictionaries)
+**You can lists within lists.** via [pymbook.readthedocs.org](http://pymbook.readthedocs.org/en/latest/datastructure.html#dictionaries)
 
     />>> a
     [45, 43624356, -3434, 1, 45, 23, 1, 111, [45, 56, 90]]
     />>> a[-1]
     [45, 56, 90]
+
+
+**find() method for a string**
+
+If it matches to more than one, it will reply ```0```
+
+    />>> a
+    'for for fight for but there'
+    />>> a.find("for")
+    0
+    />>> a.find("fight")
+    8
+
+##Data Mining the internet with Python
+
+**Resource*** [How to Mine the Web](http://www.whosbacon.com/how-to-mine-the-web)
+
+You will need three main things
+
+1. HTTP client.  The first step is to gather all of the content and make it in a readible form.
+
+good option [Requests: HTTP for Humans](http://docs.python-requests.org/en/latest/index.html)
+
+2. Content Parsing.  Once you have the content, you can now parse the data. You can parse the text(HTML) by using a structual tranverser like [Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/) or pattern matching with Regex.  Pattern matching might be the easiest option for me.  I will have to look at the html. 
+
+I just looked at the source.  And it should be pretty easy to just copy the source page for each page and use pattern matching for content between ```<b></b>``` tags.
+
+

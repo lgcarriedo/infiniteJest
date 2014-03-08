@@ -1,27 +1,50 @@
 #!/usr/bin/env python
- 
-#Splits by word, although it is just splitting by space.  So if there is a
-#symbol it is included in the "word".  I think I am going to have to be more explicit.
+#parser.py
+#Ciera Martinez
+
+import re	
+
+#These two lines read in the two data files. 
+#The first be the file with the text and  
+#list of terms to count the occurances of.
+
+#It would be great to have these manually entered. 
 
 sampleText = open('sample.txt')
+listOfTerms = open('terms.txt')
+ 
+sampleRead = sampleText.read() #makes a one item string
+termRead = listOfTerms.read() 
 
-sampleRead = sampleText.read()
+#removes symbols, like all, even periods. 
 
-wordSplit = sampleRead.split()
+sampleReadClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead)
 
-#print  wordSplit #prints the string
+sampleSplit = sampleReadClean.split() #makes a list
+termSplit = termRead.split()
 
+##Used this to test structure
+# samplereadtype = type(sampleSplit)
+# print "sampleRead is %s" % (samplereadtype)
+# print type(sampleRead)
 
-print wordSplit.count('the') #this counts the number of occurances of the word "the"
+##manually enter the word to split
+#word = str(raw_input("Please enter a word to count:")) 
 
-#This prints everything in the list on a new line
-# for item in wordSplit:
-#      print item
+#This is where I to put the loop.
+
+n = len(termSplit)
+
+print n
+
+#for x in termSplit:
+
+searchWord = termSplit[1]
+
+wordNum = sampleSplit.count(searchWord) #this counts the number of occurances of the word.  
+
+print 'There are %d occurances of the word %s ' % (wordNum, searchWord)
 
 sampleText.close()
-
-#Being more explicit
-# split(str, num) 
-# num = the # of lines made
 
 
