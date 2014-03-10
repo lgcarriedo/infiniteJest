@@ -45,13 +45,7 @@ There are several reasons why splitting using ```wordSplit = sampleRead.split()`
 
 ###TODOD NEXT
 
-- **Remove Symbols**I have to really explore how the count() method works.  Also explore find().  Maybe use the regex to find everything but symbols 
 
-    [^A-Za-z0-9]+
-
-and remove
-
-    re.sub('[^A-Za-z0-9]+', '', mystring)
 
 **Get list of Characters**
 

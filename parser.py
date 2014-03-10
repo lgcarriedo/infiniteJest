@@ -28,22 +28,17 @@ termSplit = termRead.split()
 # print "sampleRead is %s" % (samplereadtype)
 # print type(sampleRead)
 
-##manually enter the word to split
-#word = str(raw_input("Please enter a word to count:")) 
-
 #This is where I to put the loop.
 
-n = len(termSplit)
+#Run through loop (0, n)
+for x in termSplit:
+	termCount = sampleSplit.count(x)
+	print "There are %i occurances of the character %s in this section." %(termCount, x)
 
-print n
-
-#for x in termSplit:
-
-searchWord = termSplit[1]
-
-wordNum = sampleSplit.count(searchWord) #this counts the number of occurances of the word.  
-
-print 'There are %d occurances of the word %s ' % (wordNum, searchWord)
+##manually enter the word to split
+#word = str(raw_input("Please enter a word to count:")) 
+##this counts the number of occurances of the word.  
+#print 'There are %d occurances of the word %s ' % (wordNum, searchWord)
 
 sampleText.close()
 
