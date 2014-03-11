@@ -2,35 +2,21 @@
 #parser.py
 #Ciera Martinez
 
-import re	
+import re
+import sys	
 
-#These two lines read in the two data files. 
-#The first be the file with the text and  
-#list of terms to count the occurances of.
-
-#It would be great to have these manually entered. 
-
-sampleText = open('sample.txt')
-listOfTerms = open('terms.txt')
+sampleText = open(sys.argv[1]) #file that contains text
+listOfTerms = open(sys.argv[2]) #file that contains terms to search for
  
-sampleRead = sampleText.read() #makes a one item string
+sampleRead = sampleText.read() #Makes a one item string
 termRead = listOfTerms.read() 
 
-#removes symbols, like all, even periods. 
+sampleReadClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead) #removes symbols, like all, even periods.
 
-sampleReadClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead)
-
-sampleSplit = sampleReadClean.split() #makes a list
+sampleSplit = sampleReadClean.split() #splits string into list
 termSplit = termRead.split()
 
-##Used this to test structure
-# samplereadtype = type(sampleSplit)
-# print "sampleRead is %s" % (samplereadtype)
-# print type(sampleRead)
-
-#This is where I to put the loop.
-
-#Run through loop (0, n)
+#counts all the occurances on each word in term file from the text file.
 for x in termSplit:
 	termCount = sampleSplit.count(x)
 	print "There are %i occurances of the character %s in this section." %(termCount, x)
@@ -39,7 +25,7 @@ for x in termSplit:
 #word = str(raw_input("Please enter a word to count:")) 
 ##this counts the number of occurances of the word.  
 #print 'There are %d occurances of the word %s ' % (wordNum, searchWord)
-
+	
 sampleText.close()
 
 
