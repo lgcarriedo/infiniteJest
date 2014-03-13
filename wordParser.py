@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #the goal is to count words
-
  
 #Splits by word, although it is just splitting by space.  So if there is a
 #symbol it is included in the "word".  I think I am going to have to be more explicit.
@@ -22,4 +21,3 @@ sampleText.close()
 # num = the # of lines made
 
 
-\

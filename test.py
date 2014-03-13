@@ -1,16 +1,8 @@
 #!/usr/bin/python
 #test.py
 
-import re
-import sys
+testList = ['foo', 'bar', 'baz', 'baz']
 
-sampleText = open(sys.argv[1], "r")
-sampleRead = sampleText.read()
-
-#regex = re.compile('YEAR') 
-
-
-
-for line in sampleRead.splitlines():
-    if "YEAR OF" in line:
-        print line
+for i, j in enumerate(testList):
+        if j == 'baz':
+            print i,j

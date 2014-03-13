@@ -37,7 +37,7 @@ Can I write in the text file and make it a variable right away?
 1.  I first started messing with a small sample file, that I could manage a bit easier. 
 2.  I then started looking into how to do simple tasks like splitting into more digestible sections using the split() method.
 3.  In order to understand the output of the splitting I was doing I brushed up on understanding Python data stuctures, using the [best written guide to any programing I had ever seen](http://pymbook.readthedocs.org/en/latest/datastructure.html#matrixmul-py).  
-4. I wanted to count something super simple, like words, so I wrote a little program that asks for the word, then prints the number of occurances of that word. This also goes along with one of my long term goals of being able to count all the character/terms and there location relative to book. 
+4. I wanted to count something super simple, like words, so I wrote a little program that asks for the word, then prints the number of occurances of that word. This also goes along with one of my long term goals of being able to count all the character/terms and there location relative to book length. 
 
 There are several reasons why splitting using ```wordSplit = sampleRead.split()``` doesn't work. Since it is cutting on the space all the symbols are present. 
 
@@ -49,7 +49,33 @@ There are several reasons why splitting using ```wordSplit = sampleRead.split()`
 
 Parsing out each chapter is harder than I imagined.  I think what I need to do is to take advantage of the list of chapters and split by that list and reinterate over that list to split into list. 
 
+Auctually I am going to save this for later.
+
+8. I can go ahead and use my list of word and get counts and understand their index further.  Each word has it's position. 
+    
+    position = 
+        a.) start of word found when searching through string
+        b.) index number in list
+            ex.  x from  termSplit 
+
+You need to retrieve the index number of x in termSplit #x = term in terms.txt
+
+The goal is to get a tab demlimited file to enter into R. 
+Each row is 
+
+print "%i (tab) %s (tab) %" %(termCount, x, (index#) )
+
+1.  find tab
+2.  find out how to find index number from item in string.  This will be the position. Find occurance print all postitions of occurance. Print x and **each** occurance on a new row. Each row signifies one occurance of what was found. 
+3. use the ```find()``` function because it returns postion of first occurance.  But how do I find all occurances and postion?
+
+
+list.index(x)
+Return the index in the list of the first item whose value is x. It is an error if there is no such item.
+
+
 \b[A-Z0-9]{2,}\b
+
 
 ###TODOD NEXT
 
@@ -120,7 +146,7 @@ Many times it happens that we want to add more data to a value in a dictionary a
     [45, 56, 90]
 
 
-**find() method for a string**
+**```find()``` method for a string**
 
 If it matches to more than one, it will reply ```0```
 
@@ -130,6 +156,26 @@ If it matches to more than one, it will reply ```0```
     0
     />>> a.find("fight")
     8
+
+**help**
+
+    \>>> help(["foo", "bar", "baz"])
+    Help on list object:
+
+    class list(object)
+    ...
+
+
+    |
+    |  index(...)
+    |      L.index(value, [start, [stop]]) -> integer -- return first index of value
+    |
+
+**```enumerate()``` to get indexes of multiple if duplicates are in the list.
+
+    for i, j in enumerate(['foo', 'bar', 'baz']):
+        if j == 'bar':
+            print i
 
 ##Data Mining the internet with Python
 
