@@ -41,13 +41,27 @@ Can I write in the text file and make it a variable right away?
 
 There are several reasons why splitting using ```wordSplit = sampleRead.split()``` doesn't work. Since it is cutting on the space all the symbols are present. 
 
-5.  Do I even need to split into list to get occurances? It might be easier to leave as string, remove symbols, and use the find feature. 
+5.  Do I even need to split into list to get occurances? It might be easier to leave as string, remove symbols, and use the find feature. No.  It is easiest to just remove symbols then make a list. The list will be useful later as I need an index number for each word. 
+
+6. Then I made the program input the two files from command line, to help with testing. 
+
+7.  Now I need to parse out each chapter. 
+
+Parsing out each chapter is harder than I imagined.  I think what I need to do is to take advantage of the list of chapters and split by that list and reinterate over that list to split into list. 
+
+\b[A-Z0-9]{2,}\b
 
 ###TODOD NEXT
 
+Now I need to split each of these into chapters. 
 
+Regex for a paragraph:  ^M
 
-**Get list of Characters**
+I then need to assign the number to each chapter.  
+
+numWords per chapter = chapLen.
+
+Each found term will be assigned a number based on chapter and overall in the book. 
 
 ##Programing concepts
 
@@ -131,4 +145,8 @@ good option [Requests: HTTP for Humans](http://docs.python-requests.org/en/lates
 
 I just looked at the source.  And it should be pretty easy to just copy the source page for each page and use pattern matching for content between ```<b></b>``` tags.
 
+##Notes on why in the project
 
+I have been absorbing information on Python for about a year, but I never really built anything with it. I had an idea of data structure and syntax, but could never really find the motivation to build anything.  I think this is partly because all the programming I had to do, I could do in R, so I never really wanted to take the extra time to learn it.  Another problem is I am just so sick of DNA.  I am sick of the many combinations of four letters.  I love the bigger picture of bioinformatic analysis using sequencing data, but god is it boring to learn a language with.  
+
+Then came an idea, that I had never thought before, I don't have to learn Python with sequencing data.  I don't have to learn all programming in the context of bioinformatics.  So what is a large plain text file I could use?  Yes. Infinite Jest.  Infinite Jest is a mamoth piece of beautifuly complex literature.  The world in Infinite Jest is deeply rooted in my heart, I love these words. I am not alone in this fasination, there are people all over the internet finding connections, making extensive notes, analyzing this text, but from my searches, no one has delved into the patterns. 

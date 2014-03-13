@@ -9,8 +9,6 @@ sampleRead = sampleText.read()
 
 #regex = re.compile('YEAR') 
 
-
-
 for line in sampleRead.splitlines():
-    if "YEAR OF" in line:
+    if "YEAR" in line:
         print line

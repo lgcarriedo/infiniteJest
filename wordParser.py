@@ -9,8 +9,6 @@ sampleText = open('sample.txt')
 
 sampleRead = sampleText.read()
 
-
-
 wordSplit = sampleRead.split()
 
 #print  wordSplit #prints the string
@@ -24,3 +22,4 @@ sampleText.close()
 # num = the # of lines made
 
 
+\

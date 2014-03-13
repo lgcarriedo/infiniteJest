@@ -11,9 +11,10 @@ listOfTerms = open(sys.argv[2]) #file that contains terms to search for
 sampleRead = sampleText.read() #Makes a one item string
 termRead = listOfTerms.read() 
 
-sampleReadClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead) #removes symbols, like all, even periods.
+sampleReadClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead) #removes symbols
 
-sampleSplit = sampleReadClean.split() #splits string into list
+#splits string into list by word
+sampleSplit = sampleReadClean.split() 
 termSplit = termRead.split()
 
 #counts all the occurances on each word in term file from the text file.
