@@ -49,8 +49,6 @@ print "%i (tab) %s (tab) %" %(termCount, x, (index#) )
 
 8b.  I scraped a really great characters list that also give a group category to the characters. The problem is that the way in which I find the characters in 8a, will not work, because many of the character's names are more than one word.  I will try to use the counter[] method. 
 
-
-
 9. Chronology. 
 
 Each Chapter has the chronology attached. 
@@ -62,21 +60,16 @@ Do later.
 For example 
     <ch><1>
 
+What would be some ways in which I could accomplish this?  There has to be a way to specify to find the sum total up until a particular chapter then, 
+
+
 
 \b[A-Z0-9]{2,}\b
 
 
 ###TODOD NEXT
 
-Now I need to split each of these into chapters. 
 
-Regex for a paragraph:  ^M
-
-I then need to assign the number to each chapter.  
-
-numWords per chapter = chapLen.
-
-Each found term will be assigned a number based on chapter and overall in the book. 
 
 ##Programing concepts
 
