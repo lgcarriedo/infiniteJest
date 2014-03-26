@@ -42,8 +42,7 @@ head(rectangles)
 ggplot() + 
 	geom_point(
 		data = charPos, 
-		aes(x = position, y = term
-		)
+		aes(x = position, y = term )#need to fill on group. Arrange by group. 
 	)	+
 	geom_rect(
 		data = rectangles, 

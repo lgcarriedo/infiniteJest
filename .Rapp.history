@@ -1,3 +1,446 @@
+head(cdata2)
+cdata2
+head(cdata)
+cdata <- read.csv("~/Desktop/IL_stems_B_block_forR.ratios.t.test.csv")#
+head(cdata)#
+levels(cdata$IL.line)#
+t.test(cdata$cortex.stele~cdata$IL.line)
+library(plyr)#
+library(ggplot2)#
+#
+cdata2 <- ddply(cdata, .(IL.line), summarise,#
+				N		=length(cortex.stele),#
+				cortex.stele	=mean(cortex.stele),#
+				sd		=sd(cortex.stele),#
+				se		=sd(cortex.stele) / sqrt(length(cortex.stele)) )#
+head(cdata2)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata2, aes(x=IL.line, y=cortex.stele, fill=IL.line)) + opts(title="cortex:stele")#
+c + geom_bar()#
+#
+c + geom_bar(aes()) +#
+             opts(#
+             	axis.text.x = theme_text( #
+             		size=13,#
+             		colour="black"),#
+			axis.text.y =  theme_text(#
+				angle=90, #
+				hjust=1.2, #
+				size=8, 							#
+				colour="grey46")) +#
+    		geom_errorbar(aes(ymin=cortex.stele-se, ymax=cortex.stele+se), #errorbars#
+                  width=.2,                    # Width of the error bars#
+                	colour="black") +#
+            scale_fill_manual(values=c("#999999", "#CC79A7"))
+head(cdata)
+cdata <- read.csv("~/Desktop/IL_stems_B_block_forR.ratios.t.test.csv")#
+head(cdata)#
+levels(cdata$IL.line)#
+t.test(cdata$cortex.stele~cdata$IL.line)#
+#
+library(plyr)#
+library(ggplot2)#
+#
+cdata2 <- ddply(cdata, .(IL.line), summarise,#
+				N		=length(cortex.stele),#
+				cortex.stele	=mean(cortex.stele),#
+				sd		=sd(cortex.stele),#
+				se		=sd(cortex.stele) / sqrt(length(cortex.stele)) )#
+head(cdata2)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata2, aes(x=IL.line, y=cortex.stele, fill=IL.line)) + opts(title="cortex:stele")#
+c + geom_bar()#
+#
+c + geom_bar(aes()) +#
+             opts(#
+             	axis.text.x = theme_text( #
+             		size=13,#
+             		colour="black"),#
+			axis.text.y =  theme_text(#
+				angle=90, #
+				hjust=1.2, #
+				size=8, 							#
+				colour="grey46")) +#
+    		geom_errorbar(aes(ymin=cortex.stele-se, ymax=cortex.stele+se), #errorbars#
+                  width=.2,                    # Width of the error bars#
+                	colour="black") +#
+            scale_fill_manual(values=c("#999999", "#CC79A7"))
+cdata <- read.csv("~/Desktop/IL_stems_B_block_forR.ratios.t.test.csv")#
+head(cdata)#
+levels(cdata$IL.line)#
+t.test(cdata$cortex.total~cdata$IL.line)#
+#
+library(plyr)#
+library(ggplot2)#
+#
+cdata2 <- ddply(cdata, .(IL.line), summarise,#
+				N		=length(cortex.total),#
+				cortex.total	=mean(cortex.total),#
+				sd		=sd(cortex.total),#
+				se		=sd(cortex.total) / sqrt(length(cortex.total)) )#
+head(cdata2)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata2, aes(x=IL.line, y=cortex.total, fill=IL.line)) + opts(title="cortex:total")#
+c + geom_bar()#
+#
+c + geom_bar(aes()) +#
+             opts(#
+             	axis.text.x = theme_text( #
+             		size=13,#
+             		colour="black"),#
+			axis.text.y =  theme_text(#
+				angle=90, #
+				hjust=1.2, #
+				size=8, 							#
+				colour="grey46")) +#
+    		geom_errorbar(aes(ymin=cortex.total-se, ymax=cortex.total+se), #errorbars#
+                  width=.2,                    # Width of the error bars#
+                	colour="black") +#
+            scale_fill_manual(values=c("#999999", "#CC79A7"))
+head(cdata)
+cdata <- read.csv("~/Desktop/IL_stems_B_block_forR.ratios.t.test.csv")#
+head(cdata)#
+levels(cdata$IL.line)#
+t.test(cdata$stele.total~cdata$IL.line)#
+#
+library(plyr)#
+library(ggplot2)#
+#
+cdata2 <- ddply(cdata, .(IL.line), summarise,#
+				N		=length(stele.total),#
+				stele.total	=mean(stele.total),#
+				sd		=sd(stele.total),#
+				se		=sd(stele.total) / sqrt(length(stele.total)) )#
+head(cdata2)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata2, aes(x=IL.line, y=stele.total, fill=IL.line)) + opts(title="stele:total")#
+c + geom_bar()#
+#
+c + geom_bar(aes()) +#
+             opts(#
+             	axis.text.x = theme_text( #
+             		size=13,#
+             		colour="black"),#
+			axis.text.y =  theme_text(#
+				angle=90, #
+				hjust=1.2, #
+				size=8, 							#
+				colour="grey46")) +#
+    		geom_errorbar(aes(ymin=stele.total-se, ymax=stele.total+se), #errorbars#
+                  width=.2,                    # Width of the error bars#
+                	colour="black") +#
+            scale_fill_manual(values=c("#999999", "#CC79A7"))
+head(cdata) #check
+cdata <- read.csv("~/Desktop/Stem Measurement Data/R Histories  /IL_stems_B_block_forR.ratios.csv")
+head(cdata) #check
+levels(cdata$IL.line) #check
+summary(cdata$IL.line) #how many measurements per IL
+cdata <- read.csv("~/Desktop/Stem Measurement Data/R Histories  /IL_stems_B_block_forR.ratios.csv")#
+#
+head(cdata) #check#
+#
+levels(cdata$IL.line) #check #
+#
+summary(cdata$IL.line) #how many measurements per IL#
+#
+#Data Summary#
+#
+head(cdata) #
+#
+library(plyr)#
+#
+cdata2 <- ddply(cdata, .(IL.line), summarise,#
+				N		=length(cortex.stele),#
+				cortex.stele	=mean(cortex.stele),#
+				sd		=sd(cortex.stele),#
+				se		=sd(cortex.stele) / sqrt(length(cortex.stele)) )#
+head(cdata2)#
+#
+#assign to ggplot#
+c <- ggplot(cdata2, aes(x=IL.line, y=cortex.stele)) + opts(title="IL cortex:stele Means")#
+#view graph#
+c + geom_bar()#
+#
+#################################
+#Data Summary (total area)#
+#
+#sorts data2 by cortex.stele measurements#
+cdata3sort <- arrange(cdata2, cortex.stele)#
+#
+#check, doesn't work, needs to be re-oredered by variable not IL name #
+head(cdata3sort)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata3sort, aes(x=IL.line, y=cortex.stele)) + opts(title="IL cortex:stele Means")#
+c + geom_bar()#
+#
+#Part 2#
+#
+#This re-orders IL.line based on cortex.stele order, which auctually makes a new column in cdata3sort (cdatasort$IL.line) and somehow this new IL column can be can be assigned to ggplot by cortex.stele variable and NOT IL name. #
+#
+cdata3sort$IL.line1 <- reorder(cdata3sort$IL.line, cdata3sort$cortex.stele)#
+#check#
+#
+c + geom_bar(aes(x=cdata3sort$IL.line1))#
+#
+#Sorting #
+#
+#Part 1#
+#
+#sorts data2 by cortex.stele measurements#
+cdata3sort <- arrange(cdata2, cortex.stele)#
+#
+#check, doesn't work, needs to be re-oredered by variable not IL name #
+head(cdata3sort)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata3sort, aes(x=IL.line, y=cortex.stele)) + opts(title="cortex:stele Area")#
+c + geom_bar()#
+#
+#Part 2d#
+#
+cdata3sort$IL.line1 <- reorder(cdata3sort$IL.line, cdata3sort$cortex.stele)#
+#check#
+#
+c + geom_bar(aes(x=cdata3sort$IL.line1))#
+#
+c + geom_bar(fill= "cadetblue4", aes(x=cdata3sort$IL.line1)) +#
+             opts(#
+             	axis.text.x = theme_text(#
+             		angle=90, 		#Changes the tiles to be vertical#
+             		hjust=1.2, #
+             		size=8,#
+             		colour="grey46"),#
+			axis.text.y =  theme_text(#
+				angle=90, #
+				hjust=1.2, #
+				size=8, 							#
+				colour="grey46")) +#
+    		geom_errorbar(aes(ymin=cortex.stele-se, ymax=cortex.stele+se), #errorbars#
+                  width=.2,                    # Width of the error bars#
+                	colour="black")
+cdata <- read.csv("~/Desktop/Stem Measurement Data/R Histories  /IL_stems_B_block_forR.ratios.csv")#
+#
+head(cdata) #check#
+#
+levels(cdata$IL.line) #check #
+#
+summary(cdata$IL.line) #how many measurements per IL#
+#
+#Data Summary#
+#
+head(cdata) #
+library(ggplot)#
+library(plyr)#
+#
+cdata2 <- ddply(cdata, .(IL.line), summarise,#
+				N		=length(cortex.stele),#
+				cortex.stele	=mean(cortex.stele),#
+				sd		=sd(cortex.stele),#
+				se		=sd(cortex.stele) / sqrt(length(cortex.stele)) )#
+head(cdata2)#
+#
+#assign to ggplot#
+c <- ggplot(cdata2, aes(x=IL.line, y=cortex.stele)) + opts(title="IL cortex:stele Means")#
+#view graph#
+c + geom_bar()#
+#
+#################################
+#Data Summary (total area)#
+#
+#sorts data2 by cortex.stele measurements#
+cdata3sort <- arrange(cdata2, cortex.stele)#
+#
+#check, doesn't work, needs to be re-oredered by variable not IL name #
+head(cdata3sort)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata3sort, aes(x=IL.line, y=cortex.stele)) + opts(title="IL cortex:stele Means")#
+c + geom_bar()#
+#
+#Part 2#
+#
+#This re-orders IL.line based on cortex.stele order, which auctually makes a new column in cdata3sort (cdatasort$IL.line) and somehow this new IL column can be can be assigned to ggplot by cortex.stele variable and NOT IL name. #
+#
+cdata3sort$IL.line1 <- reorder(cdata3sort$IL.line, cdata3sort$cortex.stele)#
+#check#
+#
+c + geom_bar(aes(x=cdata3sort$IL.line1))#
+#
+#Sorting #
+#
+#Part 1#
+#
+#sorts data2 by cortex.stele measurements#
+cdata3sort <- arrange(cdata2, cortex.stele)#
+#
+#check, doesn't work, needs to be re-oredered by variable not IL name #
+head(cdata3sort)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata3sort, aes(x=IL.line, y=cortex.stele)) + opts(title="cortex:stele Area")#
+c + geom_bar()#
+#
+#Part 2d#
+#
+cdata3sort$IL.line1 <- reorder(cdata3sort$IL.line, cdata3sort$cortex.stele)#
+#check#
+#
+c + geom_bar(aes(x=cdata3sort$IL.line1))#
+#
+c + geom_bar(fill= "cadetblue4", aes(x=cdata3sort$IL.line1)) +#
+             opts(#
+             	axis.text.x = theme_text(#
+             		angle=90, 		#Changes the tiles to be vertical#
+             		hjust=1.2, #
+             		size=8,#
+             		colour="grey46"),#
+			axis.text.y =  theme_text(#
+				angle=90, #
+				hjust=1.2, #
+				size=8, 							#
+				colour="grey46")) +#
+    		geom_errorbar(aes(ymin=cortex.stele-se, ymax=cortex.stele+se), #errorbars#
+                  width=.2,                    # Width of the error bars#
+                	colour="black")
+library(ggplot)
+library(ggplot2)
+cdata <- read.csv("~/Desktop/Stem Measurement Data/R Histories  /IL_stems_B_block_forR.ratios.csv")#
+#
+head(cdata) #check#
+#
+levels(cdata$IL.line) #check #
+#
+summary(cdata$IL.line) #how many measurements per IL#
+#
+#Data Summary#
+#
+head(cdata) #
+library(ggplot2)#
+library(plyr)#
+#
+cdata2 <- ddply(cdata, .(IL.line), summarise,#
+				N		=length(cortex.stele),#
+				cortex.stele	=mean(cortex.stele),#
+				sd		=sd(cortex.stele),#
+				se		=sd(cortex.stele) / sqrt(length(cortex.stele)) )#
+head(cdata2)#
+#
+#assign to ggplot#
+c <- ggplot(cdata2, aes(x=IL.line, y=cortex.stele)) + opts(title="IL cortex:stele Means")#
+#view graph#
+c + geom_bar()#
+#
+#################################
+#Data Summary (total area)#
+#
+#sorts data2 by cortex.stele measurements#
+cdata3sort <- arrange(cdata2, cortex.stele)#
+#
+#check, doesn't work, needs to be re-oredered by variable not IL name #
+head(cdata3sort)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata3sort, aes(x=IL.line, y=cortex.stele)) + opts(title="IL cortex:stele Means")#
+c + geom_bar()#
+#
+#Part 2#
+#
+#This re-orders IL.line based on cortex.stele order, which auctually makes a new column in cdata3sort (cdatasort$IL.line) and somehow this new IL column can be can be assigned to ggplot by cortex.stele variable and NOT IL name. #
+#
+cdata3sort$IL.line1 <- reorder(cdata3sort$IL.line, cdata3sort$cortex.stele)#
+#check#
+#
+c + geom_bar(aes(x=cdata3sort$IL.line1))#
+#
+#Sorting #
+#
+#Part 1#
+#
+#sorts data2 by cortex.stele measurements#
+cdata3sort <- arrange(cdata2, cortex.stele)#
+#
+#check, doesn't work, needs to be re-oredered by variable not IL name #
+head(cdata3sort)#
+#
+#reassign to ggplot#
+c <- ggplot(cdata3sort, aes(x=IL.line, y=cortex.stele)) + opts(title="cortex:stele Area")#
+c + geom_bar()#
+#
+#Part 2d#
+#
+cdata3sort$IL.line1 <- reorder(cdata3sort$IL.line, cdata3sort$cortex.stele)#
+#check#
+#
+c + geom_bar(aes(x=cdata3sort$IL.line1))#
+#
+c + geom_bar(fill= "cadetblue4", aes(x=cdata3sort$IL.line1)) +#
+             opts(#
+             	axis.text.x = theme_text(#
+             		angle=90, 		#Changes the tiles to be vertical#
+             		hjust=1.2, #
+             		size=8,#
+             		colour="grey46"),#
+			axis.text.y =  theme_text(#
+				angle=90, #
+				hjust=1.2, #
+				size=8, 							#
+				colour="grey46")) +#
+    		geom_errorbar(aes(ymin=cortex.stele-se, ymax=cortex.stele+se), #errorbars#
+                  width=.2,                    # Width of the error bars#
+                	colour="black")
+getwd()
+x <- 1:100#
+xx <- as.character(x)#
+xx[x%%3==0] <- "Fizz"#
+xx[x%%5==0] <- "Buzz"#
+xx[x%%15==0] <- "FizzBuzz"#
+xx
+?as.character
+?%%
+y<-1:100
+yy<-ascharacter(x)
+yy<-ascharcter(y)
+yy<-as.character(y)
+yy(y%%==0) <- "Fizz"
+> x <- 1:100#
+> xx <- as.character(x)#
+> xx[x%%3==0] <- "Fizz"#
+> xx[x%%5==0] <- "Buzz"#
+> xx[x%%15==0] <- "FizzBuzz"#
+> xx
+x <- 1:100#
+ xx <- as.character(x)#
+ xx[x%%3==0] <- "Fizz"#
+ xx[x%%5==0] <- "Buzz"#
+ xx[x%%15==0] <- "FizzBuzz"#
+ xx
+y <- 1:100#
+ yy <- as.character(y)#
+ yy(y%%3==0) <- "Fizz"#
+ yy(y%%5==0) <- "Buzz"#
+ yy(y%%15==0) <- "FizzBuzz"#
+ yy
+xdiscu <- sample(1:100, 4, replace=TRUE)
+xdiscu
+x <- sample(1:100, 4, replace=TRUE)
+x
+xx(y%%3==0) <- "Fizz"
+xx[y%%3==0] <- "Fizz"
+yy[y%%5==0] <- "Buzz"
+xx(x%%15==0) <- "FizzBuzz"
+xx[x%%15==0] <- "FizzBuzz"
+xx
+x <- sample(1:100, 4, replace=TRUE)#
+x#
+xx[x%%3==0] <- "Fizz"#
+xx[x%%5==0] <- "Buzz"#
+xx[x%%15==0] <- "FizzBuzz"#
+xx
 x <- sample(1:100, 4, replace=TRUE)
 x
 xx[x%%3==0] <- "Fizz"
@@ -463,348 +906,224 @@ stereotypes <- read.csv("stereotypes.csv")
 2 + 2
 4+4
 install.packages('sequinr')
-library(knitr)
-charPos <- read.txt("characterPosition.txt", header = "true")
-charPos <- read.table(characterPosition.txt, header = TRUE)
-charPos <- read.table("characterPosition.txt", header = TRUE)
-charPos
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-2charPos <- read.table("characterPosition.txt", header = TRUE)
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-charPos <- read.table("characterPosition.txt", header = TRUE)
-knit(rInfiniteJest.rd)
-knit("rInfiniteJest.rd")
-knit("rInfiniteJest.rmd")
-knit("rInfiniteJest.rmd")
-knit("rInfiniteJest.rmd")
-knit("ResultsofBoxPlots.rmd")
-ls
-gma
-gma
-head(chapPos)
-head(charPos)
-chapPos <- read.table("chapterPosition.txt", header = TRUE)
-=
-chapPos <- read.table("chapterPosition.txt", header = TRUE)
-charPos <- read.table("characterPosition.txt", header = TRUE)
-head(chapPos)
-head(charPos)
-sort(charPos)
-tail(char)
-tail(charPos)
-tail(chapPos)
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-rect_left <- c(4,52,100,148)#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 24,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-library(ggplot2)
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-rect_left <- c(4,52,100,148)#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 24,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-rect_left <- c(4,52,100,200)
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
 library(ggplot2)#
 #
 chapPos <- read.table("chapterPosition.txt", header = TRUE)#
 charPos <- read.table("characterPosition.txt", header = TRUE)#
 #
+#I need to combine them together. Using information from chapPos. Or do I?#
+#
+# cellcounts$significance[cellcounts$p.value <= 0.0001] <- "0.0001"#
+#
 head(chapPos)#
 head(charPos)#
 #
 tail(charPos)#
 tail(chapPos)#
-charPos$chapter <- #
+#this is generating the data.#
+#dat <- data.frame(my_x_series=1:10000, #my_y_series=5.0*runif(192))#
+#in order for me to modify this I need convert a column (charPos$position1) to a numeric vector.  Try using this function:#
 #
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
+rect_left <- chapPos[['position1']]#
+rect_left#
 #
-rect_left <- c(4,52,100,500)#
+rect_right <- chapPos[['length']]#
+rect_right#
 #
+rect_right#
 rectangles <- data.frame(#
   xmin = rect_left,#
-  xmax = rect_left + 24,#
+  xmax = rect_left + (rect_right - 500),#
   ymin = 0,#
-  ymax = 5#
+  ymax = .5#
 )#
 #
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
+head(rectangles)#
+#
+ggplot() + #
+	geom_point(#
+	data = charPos, #
+	aes(x = position, y = term#
+	))	+#
+	geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), fill = 'blue', alpha = .7) +#
+  ylab("") + xlab("")
 library(ggplot2)#
 #
 chapPos <- read.table("chapterPosition.txt", header = TRUE)#
 charPos <- read.table("characterPosition.txt", header = TRUE)#
 #
-head(chapPos)#
-head(charPos)#
+#I need to combine them together. Using information from chapPos. Or do I?#
 #
-tail(charPos)#
-tail(chapPos)#
-charPos$chapter <- #
-#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-#
-rect_left <- c(4,52,400,148)#
-#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 24,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-rect_left <- c(4,52,100,148)#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 24,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-xmax = rect_left + 52,
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-rect_left <- c(4,52,100,148)#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 52,#
-  ymin = 0,#
-  ymax = 5#
-)
-library(ggplot)#
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-charPos <- read.table("characterPosition.txt", header = TRUE)#
+# cellcounts$significance[cellcounts$p.value <= 0.0001] <- "0.0001"#
 #
 head(chapPos)#
 head(charPos)#
 #
 tail(charPos)#
 tail(chapPos)#
-charPos$chapter <- #
-#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-rect_left <- c(4,52,100,148)#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 52,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-library(ggplot)#
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-charPos <- read.table("characterPosition.txt", header = TRUE)#
-#
-head(chapPos)#
-head(charPos)#
-#
-tail(charPos)#
-tail(chapPos)#
-charPos$chapter <- #
-#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-rect_left <- c(4,52,100,148)#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 20,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-library(ggplot)#
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-charPos <- read.table("characterPosition.txt", header = TRUE)#
-#
-head(chapPos)#
-head(charPos)#
-#
-tail(charPos)#
-tail(chapPos)#
-charPos$chapter <- #
-#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(500))#
-#
-rect_left <- c(4,52,100,148)#
-#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 20,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-library(ggplot)#
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-charPos <- read.table("characterPosition.txt", header = TRUE)#
-#
-head(chapPos)#
-head(charPos)#
-#
-tail(charPos)#
-tail(chapPos)#
-charPos$chapter <- #
-#
-dat <- data.frame(my_x_series=1:500, my_y_series=5.0*runif(500))#
-#
-rect_left <- c(4,52,100,148)#
-#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 20,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-library(ggplot)#
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-charPos <- read.table("characterPosition.txt", header = TRUE)#
-#
-head(chapPos)#
-head(charPos)#
-#
-tail(charPos)#
-tail(chapPos)#
-charPos$chapter <- #
-#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
-rect_left <- c(4,52,100,148)#
-rectangles <- data.frame(#
-  xmin = rect_left,#
-  xmax = rect_left + 20,#
-  ymin = 0,#
-  ymax = 5#
-)#
-#
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-library(ggplot)#
-chapPos <- read.table("chapterPosition.txt", header = TRUE)#
-charPos <- read.table("characterPosition.txt", header = TRUE)#
-#
-head(chapPos)#
-head(charPos)#
-#
-tail(charPos)#
-tail(chapPos)#
-charPos$chapter <- #
-#
 #this is generating the data.#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
+#dat <- data.frame(my_x_series=1:10000, #my_y_series=5.0*runif(192))#
+#in order for me to modify this I need convert a column (charPos$position1) to a numeric vector.  Try using this function:#
 #
-rect_left <- c(4,52,100,148)#
+rect_left <- chapPos[['position1']]#
+rect_left#
+#
+rect_right <- chapPos[['length']]#
+rect_right#
+#
+rect_right#
 rectangles <- data.frame(#
   xmin = rect_left,#
-  xmax = rect_left + 40,#
+  xmax = rect_left + (rect_right - 500),#
   ymin = 0,#
-  ymax = 5#
+  ymax = .5#
 )#
 #
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-rect_left <- c(4,4,100,148)
-library(ggplot)#
+head(rectangles)#
+#
+ggplot() + #
+	geom_point(#
+	data = charPos, #
+	aes(x = position, y = term#
+	))	+#
+	geom_rect(data = rectangles, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), fill = 'blue', alpha = .7) +#
+  ylab("") + xlab("")
+library(ggplot2)#
+#
 chapPos <- read.table("chapterPosition.txt", header = TRUE)#
 charPos <- read.table("characterPosition.txt", header = TRUE)#
+#
+#I need to combine them together. Using information from chapPos. Or do I?#
+#
+# cellcounts$significance[cellcounts$p.value <= 0.0001] <- "0.0001"#
 #
 head(chapPos)#
 head(charPos)#
 #
 tail(charPos)#
 tail(chapPos)#
-charPos$chapter <- #
-#
 #this is generating the data.#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
+#dat <- data.frame(my_x_series=1:10000, #my_y_series=5.0*runif(192))#
+#in order for me to modify this I need convert a column (charPos$position1) to a numeric vector.  Try using this function:#
 #
-rect_left <- c(4,4,100,148)#
+rect_left <- chapPos[['position1']]#
+rect_left#
+#
+rect_right <- chapPos[['length']]#
+rect_right#
+#
+rect_right#
 rectangles <- data.frame(#
   xmin = rect_left,#
-  xmax = rect_left + 40,#
+  xmax = rect_left + (rect_right - 500),#
   ymin = 0,#
-  ymax = 5#
+  ymax = .5#
 )#
 #
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
-library(ggplot)#
+head(rectangles)#
+#
+ggplot() + #
+	geom_point(#
+		data = charPos, #
+		aes(x = position, y = term#
+		)#
+	)	+#
+	geom_rect(#
+		data = rectangles, #
+		aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), #
+		fill = 'blue', #
+		alpha = .7) +#
+  		ylab("") + #
+  		xlab("")
+library(ggplot2)#
+#
 chapPos <- read.table("chapterPosition.txt", header = TRUE)#
 charPos <- read.table("characterPosition.txt", header = TRUE)#
+#
+#I need to combine them together. Using information from chapPos. Or do I?#
+#
+# cellcounts$significance[cellcounts$p.value <= 0.0001] <- "0.0001"#
 #
 head(chapPos)#
 head(charPos)#
 #
 tail(charPos)#
 tail(chapPos)#
-charPos$chapter <- #
-#
 #this is generating the data.#
-dat <- data.frame(my_x_series=1:192, my_y_series=5.0*runif(192))#
+#dat <- data.frame(my_x_series=1:10000, #my_y_series=5.0*runif(192))#
+#in order for me to modify this I need convert a column (charPos$position1) to a numeric vector.  Try using this function:#
 #
-rect_left <- c(4,30,100,148)#
+rect_left <- chapPos[['position1']]#
+rect_left#
+#
+rect_right <- chapPos[['length']]#
+rect_right#
+#
+rect_right#
 rectangles <- data.frame(#
   xmin = rect_left,#
-  xmax = rect_left + 40,#
+  xmax = rect_left + (rect_right - 500),#
   ymin = 0,#
-  ymax = 5#
+  ymax = .5#
 )#
 #
-ggplot() +#
-  geom_rect(data=rectangles, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), #
-            fill='gray80', alpha=0.8) +#
-  geom_point(data=dat, aes(x=my_x_series, y=my_y_series))
+head(rectangles)#
+#
+ggplot() + #
+	geom_point(#
+		data = charPos, #
+		aes(x = position, y = term, fill = 'pink')#
+	)	+#
+	geom_rect(#
+		data = rectangles, #
+		aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), #
+		fill = 'blue', #
+		alpha = .7) +#
+  		ylab("") + #
+  		xlab("")
+library(ggplot2)#
+#
+chapPos <- read.table("chapterPosition.txt", header = TRUE)#
+charPos <- read.table("characterPosition.txt", header = TRUE)#
+#
+#I need to combine them together. Using information from chapPos. Or do I?#
+#
+# cellcounts$significance[cellcounts$p.value <= 0.0001] <- "0.0001"#
+#
+head(chapPos)#
+head(charPos)#
+#
+tail(charPos)#
+tail(chapPos)#
+#this is generating the data.#
+#dat <- data.frame(my_x_series=1:10000, #my_y_series=5.0*runif(192))#
+#in order for me to modify this I need convert a column (charPos$position1) to a numeric vector.  Try using this function:#
+#
+rect_left <- chapPos[['position1']]#
+rect_left#
+#
+rect_right <- chapPos[['length']]#
+rect_right#
+#
+rect_right#
+rectangles <- data.frame(#
+  xmin = rect_left,#
+  xmax = rect_left + (rect_right - 500),#
+  ymin = 0,#
+  ymax = .5#
+)#
+#
+head(rectangles)#
+#
+ggplot() + #
+	geom_point(#
+		data = charPos, #
+		aes(x = position, y = term )#need to fill on group. Arrange by group. #
+	)	+#
+	geom_rect(#
+		data = rectangles, #
+		aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), #
+		fill = 'blue', #
+		alpha = .7) +#
+  		ylab("") + #
+  		xlab("")
