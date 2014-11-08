@@ -8,9 +8,9 @@ import re
 import sys	
 
 #This sets up output file
-#orig_stdout = sys.stdout
-#data = open("parserData.txt", 'w')
-#sys.stdout = data
+orig_stdout = sys.stdout
+data = open("./data/chList.txt", 'w')
+sys.stdout = data
 
 #prints the headers of columns
 print 'postition\tterm'
@@ -28,10 +28,10 @@ for term in termSplit:
 		print m.group(0), "\t", m.start()
 
 #Outputs print
-#sys.stdout = orig_stdout
+sys.stdout = orig_stdout
 
-#sampleText.close()
-#listOfTerms.close()
-#data.close()
+sampleText.close()
+listOfTerms.close()
+data.close()
 
 
