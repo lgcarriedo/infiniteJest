@@ -1,7 +1,11 @@
 #!/usr/bin/env python
-#parser3.py
+#chp3.py
 #Ciera Martinez
-#There are two arguments 1. a file that containts a list of terms and 2. a file that contains terms to search for 	
+
+#There are two arguments 
+#1. a file that containts text to search
+#2. a file that contains terms to search for 
+
 
 import re
 import sys	
@@ -19,8 +23,6 @@ termRead = listOfTerms.read()
 termSplit = termRead.split('\r') #splits term list by carriage return
 
 sampleReadCh = sampleRead.split('<ch>')
-
-print sampleReadCh
 
 sampleClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead) #removes symbols
 

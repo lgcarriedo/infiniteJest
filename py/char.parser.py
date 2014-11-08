@@ -1,15 +1,22 @@
 #!/usr/bin/env python
-#parser.py This attaches postion number to word from a list of words.  Built to take in the chapter list and print out the position the chapter begins. 
+#char.parser.py 
 #Ciera Martinez
 
-#Working on: searching multiple word terms
+#This script takes in two arguments
+#1. text file (sampleText)
+#2. List of terms to seach text file (listOfTerms)
+# and then prints all terms and their postion in text file
+# outputs results into ./data directory "charList.txt" 
+
+#sample command to run (for infinite jest project)
+#python py/char.parser.py data/bookText/David-Foster-Wallace-Infinite-Jest-v2.0.txt data/character/characters.mod.txt
 
 import re
 import sys	
 
 #This sets up output file
 orig_stdout = sys.stdout
-data = open("./data/chList.txt", 'w')
+data = open("./data/pyOutputs/characterPosition.txt", 'w')
 sys.stdout = data
 
 #prints the headers of columns
@@ -33,5 +40,3 @@ sys.stdout = orig_stdout
 sampleText.close()
 listOfTerms.close()
 data.close()
-
-
