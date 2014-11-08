@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #parser3.py
 #Ciera Martinez
-#There are two arguments 1. file that 
+#There are two arguments 1. a file that containts a list of terms and 2. a file that contains terms to search for 	
 
 import re
 import sys	
@@ -10,7 +10,7 @@ from collections import Counter
 #This sets up output file
 orig_stdout = sys.stdout
 
-sampleText = open(sys.argv[1]) #file that contains text
+sampleText = open(sys.argv[1]) #file that contains text ex. 
 listOfTerms = open(sys.argv[2]) #file that contains terms to search for
 
 sampleRead = sampleText.read() #Makes a one item string

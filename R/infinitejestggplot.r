@@ -1,6 +1,9 @@
 library(ggplot2)
 
+#To get chapterPosition.txt, I ran ch.parser.py
 chapPos <- read.table("../data/chapterPosition.txt", header = TRUE)
+
+#To get characterPosition.txt I ran ch.parser.py
 charPos <- read.table("../data/characterPosition.txt", header = TRUE)
 
 #I need to combine them together. Using information from chapPos. Or do I?

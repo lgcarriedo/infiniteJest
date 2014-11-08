@@ -192,16 +192,14 @@ Return the index in the list of the first item whose value is x. It is an error 
     #this counts the number of occurrences of the word.  
     print 'There are %d occurrences of the word %s ' % (wordNum, searchWord)
 
-#counts all the occurrences of each word in term file from the text file.
+    #counts all the occurrences of each word in term file from the text file.
 
-for x in termSplit:
+    for x in termSplit:
     print x
     termCount = sampleSplit.count(x)
     print "There are %i occurrences of the character %s in this section." %(termCount, x)
-
-#counts all the occurrences of each word in term file from the text file.
-
-for x in termSplit:
+    #counts all the occurrences of each word in term file from the text file.
+    for x in termSplit:
     print x
     termCount = sampleSplit.count(x)
     print "There are %i occurrences of the character %s in this section." %(termCount, x)

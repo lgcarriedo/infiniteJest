@@ -16,7 +16,7 @@ print 'postition\tterm'
 sampleText = open(sys.argv[1]) #file that contains text
 listOfTerms = open(sys.argv[2]) #file that contains terms to search for
 
-sampleRead = sampleText.read() #Makes a one item string
+sampleRead = sampleText.read() #Makes one item string
 termRead = listOfTerms.read() 
 
 sampleReadClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead) #removes symbols
@@ -29,6 +29,8 @@ for x in termSplit:
 	for i, j in enumerate(sampleSplit):
 		if j == x:
 			print '%i\t%s' % (i, j)
+
+print sampleRead
 
 #Outputs print
 sys.stdout = orig_stdout
