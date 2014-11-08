@@ -128,7 +128,7 @@ If I continue reading line?  Does nextthirirty stay the same?  Should.
 
 So we know it is part of the string. That means I can connect them together. If I can figure out how to cut them at every sentence (minus the acrynyms), Make a string of sentences in every paragraph. The key will be the paragraph and the value will be the string of sentences which belong to that paragraph. 
 
-Many times it happens that we want to add more data to a value in a dictionary and if the key does not exists then we add some default value. You can do this efficiently using dict.setdefault(key, default). via [pymbook.readthedocs.org](http://pymbook.readthedocs.org/en/latest/datastructure.html#dictionaries)
+Many times it happens that we want to add more data to a value in a dictionary and if the key does not exist, then we add some default value. You can do this efficiently using dict.setdefault(key, default). via [pymbook.readthedocs.org](http://pymbook.readthedocs.org/en/latest/datastructure.html#dictionaries)
 
     />>> data = {}
     />>> data.setdefault('names', []).append('Ruby')
@@ -209,6 +209,10 @@ from collections import Counter
 str = "Mary had a little lamb"
 counter = Counter(str)
 print counter['a']
+
+Remove only symbols
+
+    sampleReadClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead) #removes symbols
 
 ##Data Mining the internet with Python
 
