@@ -4,7 +4,7 @@ The data files for the text all either came from 1. Scraping a website or 2. fro
 
 ##booktext
 
-All data files in this directory came from `David-Foster-Wallace-Infinite-Jest-v2.0.pdf` a file that came from the internet somewhere.  
+All data files in this directory came from `David-Foster-Wallace-Infinite-Jest-v2.0.pdf` a file that came from the internet somewhere.  Footnotes are the number of the footnote repeated twice.  Like for footnote 64, it will appear as 6464. I have not done anything more with them at this point. 
 
 1. `David-Foster-Wallace-Infinite-Jest-v2.0.pdf` - original file
 2. `David-Foster-Wallace-Infinite-Jest-v2.0.txt` - is the .txt version of the original file, cleaned up a bit to remove crazy symbol artifacts from .pdf to .txt conversion.

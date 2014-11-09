@@ -4,34 +4,30 @@
 
 #There are two arguments 
 #1. a file that containts text to search
-#2. a file that contains terms to search for 
-
 
 import re
 import sys	
-from collections import Counter
 
 #This sets up output file
 orig_stdout = sys.stdout
+data = open("./data/pyOutputs/chapterSamplePosition.txt", 'w')
+sys.stdout = data
 
-sampleText = open(sys.argv[1]) #file that contains text ex. 
-listOfTerms = open(sys.argv[2]) #file that contains terms to search for
+#prints the headers of columns
+print 'chapter\tposition'
 
-sampleRead = sampleText.read() #Makes a one item string
-termRead = listOfTerms.read() 
+sampleText = open(sys.argv[1]) #file that contains text
+sampleRead = sampleText.read() #Makes one item string
 
-termSplit = termRead.split('\r') #splits term list by carriage return
+#for everytime the chapter tag is found, it will print tag and position
+for m in re.finditer("<ch><\d\d>", sampleRead):
+	print m.group(0), "\t", m.start()
 
-sampleReadCh = sampleRead.split('<ch>')
+print "endNotes", "\t", 
 
-sampleClean = re.sub('[^A-Za-z0-9\s]+', '', sampleRead) #removes symbols
-
-#print sampleClean
-wordData = {}
-for word in termSplit:
-    wordData[word] = sampleClean.count(word) 
-
-#print wordData
+#Outputs print
+sys.stdout = orig_stdout
 
 sampleText.close()
-listOfTerms.close()
+data.close()
+
