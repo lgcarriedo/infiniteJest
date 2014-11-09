@@ -1,16 +1,36 @@
+#infinitejestggplot.r
+#Author: Ciera Martinez
+#Plot character occurance by postion in book.
+#There are two dataframes used to make this visualization, 
+#1. Chapter Position (used to delinate chapter structuring)
+#2. Character Postion 
+
+#Required Libraries
 library(ggplot2)
 
-#To get chapterPosition.txt, I ran ch.parser.py
-chapPos <- read.table("../data/pyOutputs/chapterPosition.txt", header=TRUE)
+# read in ch.parser.py output
+chapPos <- read.csv("../data/pyOutputs/chapterPosition.csv")
+head(chapPos)
 
-#To get characterPosition.txt I ran ch.parser.py
-charPos <- read.csv("../data/pyOutputs/characterPosition.csv")
+#need to clean up position
+chapPos$chapter <- gsub("<", "", chapPos$chapter)
+chapPos$chapter <- gsub(">", "", chapPos$chapter)
 
-summary(charPos)
-#I need to combine them together. Using information from chapPos. Or do I?
+#to get chapter range  (maybe a bit of a weird way)
+#make new vector independently of chapPos dataframe
+
+sample <- (chapPos$position - 1)
+
+sample <- sample[-1] 
+sample[65] <- NA #add a NA at the end so vector is length of chapPos rows
+chapPos$position2 <- sample #bring back
+
+#length column
+chapPos$length <- (chapPos$position2 - chapPos$position)
+head(chapPos)
 
 #for the chapter graph at the bottom.
-rect_left <- chapPos[['position1']]
+rect_left <- chapPos[['position']]
 rect_left
 
 rect_right <- chapPos[['length']]
@@ -24,6 +44,12 @@ rectangles <- data.frame(
   ymax = .5
 )
 
+head(rectangles)
+#To get characterPosition.txt I ran ch.parser.py
+charPos <- read.csv("../data/pyOutputs/characterPosition.csv")
+
+summary(charPos)
+
 #In order to re-order by the total number of occurances, you need to get the 
 #attach the total number of times that occurance happened.  
 
@@ -34,7 +60,7 @@ ggplot(charPos, aes(term)) +
   theme(text = element_text(),
         axis.text.x = element_text(angle=90, 
                                    vjust=1)) 
-?reorder
+
 ggplot() + 
 	geom_point(
 		data = charPos, 
@@ -43,7 +69,7 @@ ggplot() +
 		data = rectangles, 
 		aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
 		  fill = 'blue', 
-		  alpha = .7) +
+		  alpha = .4) +
     ylab("") + 
   	xlab("") +
     theme_bw()

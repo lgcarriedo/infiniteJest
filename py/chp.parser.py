@@ -10,7 +10,7 @@ import sys
 
 #This sets up output file
 orig_stdout = sys.stdout
-data = open("./data/pyOutputs/chapterSamplePosition.txt", 'w')
+data = open("./data/pyOutputs/chapterPosition.txt", 'w')
 sys.stdout = data
 
 #prints the headers of columns
@@ -30,4 +30,6 @@ sys.stdout = orig_stdout
 
 sampleText.close()
 data.close()
+
+
 
