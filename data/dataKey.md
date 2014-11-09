@@ -19,7 +19,7 @@ All data files in this directory came from `David-Foster-Wallace-Infinite-Jest-v
 ##Outline
 
 1. `chapters.txt` - Chapter headers
-2. `outline.csv` - scraped
+2. `outline.csv` - scraped, needs cleaning
 
 ##pyOutputs
 
@@ -32,4 +32,4 @@ These are files that came from a python program.
 
 These are smaller sample files texts for use when writing programs. 
 
-1. `sampleBookText.txt` -
+1. `sampleBookText.txt` - Small portion of beginning `bookText.txt`.
