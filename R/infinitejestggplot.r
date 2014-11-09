@@ -1,18 +1,13 @@
 library(ggplot2)
 
 #To get chapterPosition.txt, I ran ch.parser.py
-chapPos <- read.table("../data/chapterPosition.txt", header = TRUE)
+chapPos <- read.table("../data/pyOutputs/chapterPosition.txt", header=TRUE)
 
 #To get characterPosition.txt I ran ch.parser.py
-charPos <- read.table("../data/characterPosition.txt", header = TRUE)
+charPos <- read.csv("../data/pyOutputs/characterPosition.csv")
 
+summary(charPos)
 #I need to combine them together. Using information from chapPos. Or do I?
-
-head(chapPos)
-head(charPos)
-
-tail(charPos)
-tail(chapPos)
 
 #for the chapter graph at the bottom.
 rect_left <- chapPos[['position1']]
@@ -29,18 +24,22 @@ rectangles <- data.frame(
   ymax = .5
 )
 
+
+#In order to re-order by the total number of occurances, you need to get the 
+#attach the total number of times that occurance happened.  
+
 ggplot() + 
 	geom_point(
 		data = charPos, 
-		aes(x = position, y = term ) #need to fill on group. Arrange by group. 
-	)	+
+		aes(x = term, y = postition))	+
 	geom_rect(
 		data = rectangles, 
 		aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
-		fill = 'blue', 
-		alpha = .7) +
-  		ylab("") + 
-  		xlab("")
+		  fill = 'blue', 
+		  alpha = .7) +
+    ylab("") + 
+  	xlab("") +
+    theme_bw()
   
 
 
