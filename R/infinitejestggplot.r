@@ -24,14 +24,21 @@ rectangles <- data.frame(
   ymax = .5
 )
 
-
 #In order to re-order by the total number of occurances, you need to get the 
 #attach the total number of times that occurance happened.  
 
+ggplot(charPos, aes(term)) +
+  geom_bar(stat = "bin") +
+  coord_flip() +
+  theme_bw() +
+  theme(text = element_text(),
+        axis.text.x = element_text(angle=90, 
+                                   vjust=1)) 
+?reorder
 ggplot() + 
 	geom_point(
 		data = charPos, 
-		aes(x = term, y = postition))	+
+		aes(x = position, y = term))	+
 	geom_rect(
 		data = rectangles, 
 		aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
@@ -40,6 +47,7 @@ ggplot() +
     ylab("") + 
   	xlab("") +
     theme_bw()
+
   
 
 

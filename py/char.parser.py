@@ -20,7 +20,7 @@ data = open("./data/pyOutputs/characterPosition.txt", 'w')
 sys.stdout = data
 
 #prints the headers of columns
-print 'postition\tterm'
+print 'term\tposition'
 
 sampleText = open(sys.argv[1]) #file that contains text
 listOfTerms = open(sys.argv[2]) #file that contains terms to search for
