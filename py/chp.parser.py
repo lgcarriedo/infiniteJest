@@ -4,6 +4,8 @@
 
 #There are two arguments 
 #1. a file that containts text to search
+#example command
+#
 
 import re
 import sys	
@@ -22,8 +24,6 @@ sampleRead = sampleText.read() #Makes one item string
 #for everytime the chapter tag is found, it will print tag and position
 for m in re.finditer("<ch><\d\d>", sampleRead):
 	print m.group(0), "\t", m.start()
-
-print "endNotes", "\t", 
 
 #Outputs print
 sys.stdout = orig_stdout
