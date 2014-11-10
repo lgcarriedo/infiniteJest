@@ -9,47 +9,44 @@
 library(ggplot2)
 library(dplyr)
 
+#1. Chapter Position
 # read in ch.parser.py output
 chapPos <- read.csv("../data/pyOutputs/chapterPosition.csv")
-tail(chapPos)
-chapPos[65,1] <- "endnotes"
-
-
-tail(chapPos)
+chapPos[65,1] <- "endnotes" #rename endnotes (last row)
 
 #need to clean up position
 chapPos$chapter <- gsub("<", "", chapPos$chapter)
 chapPos$chapter <- gsub(">", "", chapPos$chapter)
+chapPos$chapter <- gsub(" ", "", chapPos$chapter)
 
-#to get chapter range  (maybe a bit of a weird way)
+
+#to get chapter range
 #make new vector independently of chapPos dataframe
 
-head(chapPos)
+#essentially removing first instance in vector and replacing last
+#instance with NA, so row #'s stays the same. (to-do re-do with loop)
 pos2 <- (chapPos$position - 1)
-head(pos2)
 pos2 <- pos2[-1] 
 pos2[65] <- NA #add a NA at the end so vector is length of chapPos rows
 chapPos$position2 <- pos2 #bring back
-tail(chapPos)
 
-#deal with endnotes
-chapPos[65,3] <- max(charPos$position)
-tail(chapPos)
-#length column
-chapPos$length <- (chapPos$position2 - chapPos$position)
-
+#2. Character Postion 
 #To get characterPosition.txt I ran ch.parser.py
 charPos <- read.csv("../data/pyOutputs/characterPosition.csv")
 
-summary(charPos)
+#first deal with endnotes
+chapPos[65,3] <- max(charPos$position)
+#length column
+chapPos$length <- (chapPos$position2 - chapPos$position)
 
 #Now add a chapter column to specify where is each character position
 
 # order the first data.frame by the ranges
 chapPos <- chapPos[order(chapPos[[2]]), ]
 
-# create a vector breaks from the interval ranges
+# create a vector that breaks from the interval ranges
 breaks <- as.vector(do.call(rbind, chapPos[c(2,3)]))
+breaks
 ints <- ceiling(findInterval(charPos[[2]], breaks)/2)
 
 charPos$chp <- chapPos[ints, 1]
@@ -66,7 +63,8 @@ ggplot(charPos, aes(term)) +
 
 #Visualization 2
 #Now I want to see the distribution 
-#for the chapter graph at the bottom.
+
+#First get rectangles for chapter delimiters for the chapter graph at the bottom.
 rect_left <- chapPos[['position']]
 rect_left
 
@@ -84,7 +82,7 @@ rectangles <- data.frame(
 ggplot() + 
 	geom_point(
 		data = charPos, 
-		aes(x = position, y = term))	+
+		aes(x = position, y = term, color = chp))	+
 	geom_rect(
 		data = rectangles, 
 		aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
@@ -94,7 +92,16 @@ ggplot() +
   	xlab("") +
     theme_bw()
 
-  
+##Subset by chapter just to see
+head(charPos)
+
+#There is a space inserted after ch01, (to-do get rid of)
+chapter7 <- subset(charPos, charPos$chp == "ch07") 
+chapter7
+
+
+
+
 
 
 
